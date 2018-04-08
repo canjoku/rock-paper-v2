@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> renders correctly 1`] = `
+<Layout>
+  <div>
+    The computer's Choice: 
+  </div>
+  <br />
+  <div>
+    Your Choice: 
+  </div>
+   
+  <br />
+  <div>
+    Total Games Played: 
+    0
+  </div>
+  <br />
+  <div>
+    Games won by the Computer: 
+    0
+  </div>
+   
+  <br />
+  <div>
+    Games won by you: 
+    0
+  </div>
+   
+  <br />
+  <div>
+    Number of Ties: 
+    0
+     
+  </div>
+   
+  <br />
+  <div>
+    <button
+      onClick={[Function]}
+    >
+      SCISSORS
+    </button>
+    <button
+      onClick={[Function]}
+    >
+      PAPER
+    </button>
+    <button
+      onClick={[Function]}
+    >
+      ROCK
+    </button>
+  </div>
+  <div />
+  <div>
+    <div />
+  </div>
+   
+  <br />
+  <Link
+    href="/index"
+  >
+    <a>
+      Home Page
+    </a>
+  </Link>
+</Layout>
+`;
