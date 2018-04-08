@@ -1,26 +1,13 @@
-
-import '../scss/appliation.scss'
-import Footer from '../components/footer'
 import { Component } from 'react'
-import Head from 'next/head'
+import Footer from '../components/footer'
 
 class Layout extends Component {
   render () {
-    return (
-      <html>
-        <Head>
-          <link rel='stylesheet' href='/_next/static/style.css' />
-        </Head>
-        <body>
-          <div className='container'>
-            <div><h1>NAVIGATION BAR</h1></div><br />
-            {this.props.children}
-            <Footer />
-          </div>
-
-        </body>
-      </html>
-    )
+    return <div>
+    <h1>WELCOME TO ROCK-PAPER-SCISSORS-GAME</h1>
+      { this.props.children }
+      <Footer />
+    </div>
   }
 }
 

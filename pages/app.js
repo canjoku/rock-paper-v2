@@ -159,20 +159,18 @@ class App extends Component {
 
   render () {
     return (
-      <div>
-        <Layout {...this.props} >
-          <div>The computer's Choice: {this.state.computerChoice}</div><br />
-          <div>Your Choice: {this.state.humanChoice}</div> <br />
-          <div>Total Games Played: {this.state.totalGames}</div><br />
-          <div>Games won by the Computer: {this.state.computerCount}</div> <br />
-          <div>Games won by you: {this.state.humanCount}</div> <br />
-          <div>Number of Ties: {this.state.ties} </div> <br />
-          {this.actions()}
-          <div>{this.showSetWinner()}</div>
-          <div>{this.showRoundWinner()}</div> <br />
-          <Link href='/index'>Home Page</Link>
-        </Layout>
-      </div>
+      <Layout {...this.props} >
+        <div>The computer's Choice: {this.state.computerChoice}</div><br />
+        <div>Your Choice: {this.state.humanChoice}</div> <br />
+        <div>Total Games Played: {this.state.totalGames}</div><br />
+        <div>Games won by the Computer: {this.state.computerCount}</div> <br />
+        <div>Games won by you: {this.state.humanCount}</div> <br />
+        <div>Number of Ties: {this.state.ties} </div> <br />
+        {this.actions()}
+        <div>{this.showSetWinner()}</div>
+        <div>{this.showRoundWinner()}</div> <br />
+        <Link href='/index'><a>Home Page</a></Link>
+      </Layout>
     )
   }
 }
