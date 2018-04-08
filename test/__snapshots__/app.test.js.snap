@@ -1,52 +1,66 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<App /> renders correctly 1`] = `
+exports[`<App /> component <App /> renders correctly 1`] = `
 <Layout>
-  <div>
-    The computer's Choice: 
+  <div
+    className="comp-choice"
+  >
+    The Computer's Choice: 
   </div>
   <br />
-  <div>
+  <div
+    className="human-choice"
+  >
     Your Choice: 
   </div>
    
   <br />
-  <div>
+  <div
+    className="total-games"
+  >
     Total Games Played: 
     0
   </div>
   <br />
-  <div>
+  <div
+    className="comp-wins"
+  >
     Games won by the Computer: 
     0
   </div>
    
   <br />
-  <div>
+  <div
+    className="human-wins"
+  >
     Games won by you: 
     0
   </div>
    
   <br />
-  <div>
+  <div
+    className="ties"
+  >
     Number of Ties: 
     0
-     
   </div>
    
   <br />
   <div>
     <button
+      className="btn-scissors"
       onClick={[Function]}
     >
       SCISSORS
     </button>
     <button
+      className="btn-paper"
       onClick={[Function]}
     >
       PAPER
     </button>
     <button
+      className="btn-rock"
       onClick={[Function]}
     >
       ROCK

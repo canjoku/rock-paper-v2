@@ -147,9 +147,9 @@ class App extends Component {
     if (this.state.totalGames < 5) {
       return (
         <div>
-          <button onClick={() => { this.gameHandler('scissors') }}>SCISSORS</button>
-          <button onClick={() => { this.gameHandler('paper') }}>PAPER</button>
-          <button onClick={() => { this.gameHandler('rock') }}>ROCK</button>
+          <button className='btn-scissors' onClick={() => { this.gameHandler('scissors') }}>SCISSORS</button>
+          <button className='btn-paper' onClick={() => { this.gameHandler('paper') }}>PAPER</button>
+          <button className='btn-rock' onClick={() => { this.gameHandler('rock') }}>ROCK</button>
         </div>
       )
     } else {
@@ -160,12 +160,12 @@ class App extends Component {
   render () {
     return (
       <Layout {...this.props} >
-        <div>The computer's Choice: {this.state.computerChoice}</div><br />
-        <div>Your Choice: {this.state.humanChoice}</div> <br />
-        <div>Total Games Played: {this.state.totalGames}</div><br />
-        <div>Games won by the Computer: {this.state.computerCount}</div> <br />
-        <div>Games won by you: {this.state.humanCount}</div> <br />
-        <div>Number of Ties: {this.state.ties} </div> <br />
+        <div className='comp-choice'>The Computer's Choice: {this.state.computerChoice}</div><br />
+        <div className='human-choice'>Your Choice: {this.state.humanChoice}</div> <br />
+        <div className='total-games'>Total Games Played: {this.state.totalGames}</div><br />
+        <div className='comp-wins'>Games won by the Computer: {this.state.computerCount}</div> <br />
+        <div className='human-wins'>Games won by you: {this.state.humanCount}</div> <br />
+        <div className='ties'>Number of Ties: {this.state.ties}</div> <br />
         {this.actions()}
         <div>{this.showSetWinner()}</div>
         <div>{this.showRoundWinner()}</div> <br />
