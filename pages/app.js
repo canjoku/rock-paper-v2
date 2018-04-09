@@ -48,7 +48,6 @@ class App extends Component {
   // This helper function categorising all the possible outccomes into three categories.
   setOutcome (computerChoice, humanChoice) {
     if (computerChoice === humanChoice && computerChoice !== null) {
-      console.log('a tie')
       return 'A Tie'
     } else if (computerChoice === 'paper' && humanChoice === 'rock') {
       return 'Computer Wins'
@@ -131,14 +130,13 @@ class App extends Component {
     }
   }
   showSetWinner () {
-    const { totalGames, computerChoice, humanChoice } = this.state
-    const outcome = this.setOutcome(computerChoice, humanChoice)
-    if (totalGames === 5 && outcome === 'A Tie') {
-      return 'Congratulations. You Won the SET of 5 games'
-    } else if (totalGames === 5 && outcome === 'You Win') {
-      return 'Congratulations. You Won the SET of 5 games'
-    } else if (totalGames === 5 && outcome === 'Computer Wins') {
-      return 'Computer won this set of 5 games'
+    const { totalGames, computerCount, humanCount } = this.state
+    if (totalGames === 5 && computerCount < humanCount) {
+      return 'Congratulations. You Won the set of 5 games'
+    } else if (totalGames === 5 && computerCount > humanCount) {
+      return 'The computer won this set of 5 games'
+    } else if (totalGames === 5 && computerCount === humanCount) {
+      return 'A Tie. No winner in this set of 5 games'
     }
   }
 
@@ -147,9 +145,9 @@ class App extends Component {
     if (this.state.totalGames < 5) {
       return (
         <div>
-          <button className='btn-scissors' onClick={() => { this.gameHandler('scissors') }}>SCISSORS</button>
-          <button className='btn-paper' onClick={() => { this.gameHandler('paper') }}>PAPER</button>
-          <button className='btn-rock' onClick={() => { this.gameHandler('rock') }}>ROCK</button>
+          <button data-behavior='btn-scissors' onClick={() => { this.gameHandler('scissors') }}>SCISSORS</button>
+          <button data-behavior='btn-paper' onClick={() => { this.gameHandler('paper') }}>PAPER</button>
+          <button data-behavior='btn-rock' onClick={() => { this.gameHandler('rock') }}>ROCK</button>
         </div>
       )
     } else {
@@ -160,14 +158,14 @@ class App extends Component {
   render () {
     return (
       <Layout {...this.props} >
-        <div className='comp-choice'>The Computer's Choice: {this.state.computerChoice}</div><br />
-        <div className='human-choice'>Your Choice: {this.state.humanChoice}</div> <br />
-        <div className='total-games'>Total Games Played: {this.state.totalGames}</div><br />
-        <div className='comp-wins'>Games won by the Computer: {this.state.computerCount}</div> <br />
-        <div className='human-wins'>Games won by you: {this.state.humanCount}</div> <br />
-        <div className='ties'>Number of Ties: {this.state.ties}</div> <br />
+        <div data-behavior='comp-choice'>The Computer's Choice: {this.state.computerChoice}</div><br />
+        <div data-behavior='human-choice'>Your Choice: {this.state.humanChoice}</div> <br />
+        <div data-behavior='total-games'>Total Games Played: {this.state.totalGames}</div><br />
+        <div data-behavior='comp-wins'>Games won by the Computer: {this.state.computerCount}</div> <br />
+        <div data-behavior='human-wins'>Games won by you: {this.state.humanCount}</div> <br />
+        <div data-behavior='ties'>Number of Ties: {this.state.ties}</div> <br />
         {this.actions()}
-        <div>{this.showSetWinner()}</div>
+        <div data-behavior='set-winner'>{this.showSetWinner()}</div>
         <div>{this.showRoundWinner()}</div> <br />
         <Link href='/index'><a>Home Page</a></Link>
       </Layout>

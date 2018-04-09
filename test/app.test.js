@@ -1,12 +1,12 @@
 import App from '../pages/app'
 
-describe('<App /> component', () => {
-  it('<App /> renders correctly', () => {
+describe('Test suite for the <App /> component', () => {
+  it('should check it renders correctly by comparing to a saved snapshot', () => {
     const component = shallow(<App />)
     expect(component).toMatchSnapshot()
   })
 
-  it('Initial values of state objects', () => {
+  it('should test the initial value of state', () => {
     const component = shallow(<App />)
     const { computerChoice, computerCount, humanChoice, humanCount, totalGames, roundWinner, ties } = component.state()
     expect(computerChoice).toEqual(null)
@@ -18,14 +18,14 @@ describe('<App /> component', () => {
     expect(ties).toEqual(0)
   })
 
-  it('Rendering of state values in the DOM before any interaction with the App', () => {
+  it('should test the rendering of state values in the DOM before any interaction with the App', () => {
     const component = shallow(<App />)
-    const computerChoice = component.find('.comp-choice').text()
-    const humanChoice = component.find('.human-choice').text()
-    const totalGames = component.find('.total-games').text()
-    const computerCount = component.find('.comp-wins').text()
-    const humanCount = component.find('.human-wins').text()
-    const ties = component.find('.ties').text()
+    const computerChoice = component.find('[data-behavior="comp-choice"]').text()
+    const humanChoice = component.find('[data-behavior="human-choice"]').text()
+    const totalGames = component.find('[data-behavior="total-games"]').text()
+    const computerCount = component.find('[data-behavior="comp-wins"]').text()
+    const humanCount = component.find('[data-behavior="human-wins"]').text()
+    const ties = component.find('[data-behavior="ties"]').text()
     expect(computerChoice).toEqual("The Computer's Choice: ")
     expect(humanChoice).toEqual('Your Choice: ')
     expect(totalGames).toEqual('Total Games Played: 0')
@@ -34,32 +34,51 @@ describe('<App /> component', () => {
     expect(ties).toEqual('Number of Ties: 0')
   })
 
-  it('the computer and player choices changes from null when the player selects the scissors button', () => {
+  it('should test the computer and player choices change from null when the player selects the scissors button', () => {
     const component = shallow(<App />)
-    const scissorsButton = component.find('.btn-scissors')
+    const scissorsButton = component.find('[data-behavior="btn-scissors"]')
     scissorsButton.simulate('click')
-    const humanChoice = component.find('.human-choice').text()
-    const totalGames = component.find('.total-games').text()
+    const humanChoice = component.find('[data-behavior="human-choice"]').text()
+    const totalGames = component.find('[data-behavior="total-games"]').text()
     expect(humanChoice).toEqual('Your Choice: scissors')
     expect(totalGames).toEqual('Total Games Played: 1')
   })
 
-  it('the computer and player choices changes from null when the player selects the paper button', () => {
+  it('should test the computer and player choices change from null when the player selects the paper button', () => {
     const component = shallow(<App />)
-    const paperButton = component.find('.btn-paper')
+    const paperButton = component.find('[data-behavior="btn-paper"]')
     paperButton.simulate('click')
-    const humanChoice = component.find('.human-choice').text()
-    const totalGames = component.find('.total-games').text()
+    const humanChoice = component.find('[data-behavior="human-choice"]').text()
+    const totalGames = component.find('[data-behavior="total-games"]').text()
     expect(humanChoice).toEqual('Your Choice: paper')
     expect(totalGames).toEqual('Total Games Played: 1')
   })
-  test('the computer and player choices changes from null when the player selects the rock button', () => {
+
+  it('should test the computer and player choices change from null when the player selects the rock button', () => {
     const component = shallow(<App />)
-    const rockButton = component.find('.btn-rock')
+    const rockButton = component.find('[data-behavior="btn-rock"]')
     rockButton.simulate('click')
-    const humanChoice = component.find('.human-choice').text()
-    const totalGames = component.find('.total-games').text()
+    const humanChoice = component.find('[data-behavior="human-choice"]').text()
+    const totalGames = component.find('[data-behavior="total-games"]').text()
     expect(humanChoice).toEqual('Your Choice: rock')
     expect(totalGames).toEqual('Total Games Played: 1')
   })
+
+  it('updates the counter on every round and displays the set winner when total rounds equals 5', () => {
+    const component = shallow(<App />)
+    const rockButton = component.find('[data-behavior="btn-rock"]')
+    const paperButton = component.find('[data-behavior="btn-paper"]')
+    const scissorsButton = component.find('[data-behavior="btn-scissors"]')
+    paperButton.simulate('click')
+    rockButton.simulate('click')
+    scissorsButton.simulate('click')
+    paperButton.simulate('click')
+    scissorsButton.simulate('click')
+    const totalGames = component.find('[data-behavior="total-games"]').text()
+    const setWinner = component.find('[data-behavior="set-winner"]')
+    expect(totalGames).toEqual('Total Games Played: 5')
+    expect(setWinner.length).toBe(1)
+    expect(setWinner.exists)
+  })
+
 })

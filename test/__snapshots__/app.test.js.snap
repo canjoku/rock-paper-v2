@@ -1,29 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<App /> component <App /> renders correctly 1`] = `
+exports[`Test suite for the <App /> component should check it renders correctly by comparing to a saved snapshot 1`] = `
 <Layout>
   <div
-    className="comp-choice"
+    data-behavior="comp-choice"
   >
     The Computer's Choice: 
   </div>
   <br />
   <div
-    className="human-choice"
+    data-behavior="human-choice"
   >
     Your Choice: 
   </div>
    
   <br />
   <div
-    className="total-games"
+    data-behavior="total-games"
   >
     Total Games Played: 
     0
   </div>
   <br />
   <div
-    className="comp-wins"
+    data-behavior="comp-wins"
   >
     Games won by the Computer: 
     0
@@ -31,7 +31,7 @@ exports[`<App /> component <App /> renders correctly 1`] = `
    
   <br />
   <div
-    className="human-wins"
+    data-behavior="human-wins"
   >
     Games won by you: 
     0
@@ -39,7 +39,7 @@ exports[`<App /> component <App /> renders correctly 1`] = `
    
   <br />
   <div
-    className="ties"
+    data-behavior="ties"
   >
     Number of Ties: 
     0
@@ -48,25 +48,27 @@ exports[`<App /> component <App /> renders correctly 1`] = `
   <br />
   <div>
     <button
-      className="btn-scissors"
+      data-behavior="btn-scissors"
       onClick={[Function]}
     >
       SCISSORS
     </button>
     <button
-      className="btn-paper"
+      data-behavior="btn-paper"
       onClick={[Function]}
     >
       PAPER
     </button>
     <button
-      className="btn-rock"
+      data-behavior="btn-rock"
       onClick={[Function]}
     >
       ROCK
     </button>
   </div>
-  <div />
+  <div
+    data-behavior="set-winner"
+  />
   <div>
     <div />
   </div>
